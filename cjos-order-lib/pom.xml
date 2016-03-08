@@ -15,7 +15,7 @@
 	<modules>
  		<module>cjos-order-core</module>
 		<module>cjos-order-model</module>
-<!--		<module>cjos-user-apispec</module> -->
+		<module>cjos-order-apispec</module>
 	</modules>
 
 	<dependencyManagement>
