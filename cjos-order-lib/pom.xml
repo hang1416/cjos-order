@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>cj.oshopping.order</groupId>
+		<artifactId>cjos-order-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../cjos-order-parent</relativePath>
+	</parent>
+
+	<artifactId>cjos-order-lib</artifactId>
+	<description>CJOS 주문 Java 라이브러리 설정</description>
+	<packaging>pom</packaging>
+
+	<modules>
+ 		<module>cjos-order-core</module>
+		<module>cjos-order-model</module>
+<!--		<module>cjos-user-apispec</module> -->
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>cj.oshopping.common</groupId>
+				<artifactId>cjos-common-lib</artifactId>
+				<version>${cjos.common.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>
