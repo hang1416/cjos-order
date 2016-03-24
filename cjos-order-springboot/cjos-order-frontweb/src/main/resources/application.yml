@@ -1,0 +1,31 @@
+server:
+  address: ${domainByProfile.order.frontweb.cjmall.domain}
+  port: ${domainByProfile.order.frontweb.cjmall.port}
+  
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+
+eureka:
+  client:
+    region: default
+    registry-fetch-interval-seconds: 5
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 3
+    metadata-map:
+      instanceId: ${spring.application.name}:${spring.application.instanceId:${server.port}}
+    prefer-ip-address: true
+  
+logging:
+  level:
+    com.netflix.discovery: 'OFF'
+    #org.springframework.boot.context.config: TRACE
+    cj.oshopping.user.core.repository: TRACE # for SQL Query & Query Result
+    
+bootApplication:
+  encrypted:
+    value: '{encrypted}oXugY6daQaS4BjQmgas6T3BL4HNfWeKF2Upan9Me1H8' #encryptedValue

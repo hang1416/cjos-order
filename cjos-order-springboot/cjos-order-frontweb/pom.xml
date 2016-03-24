@@ -6,10 +6,10 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
-
+	
 	<artifactId>cjos-order-frontweb</artifactId>
 
-	<dependencies>
+	<dependencies> 		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -22,6 +22,20 @@
 			<groupId>cj.oshopping.order</groupId>
 			<artifactId>cjos-order-core</artifactId>
 			<version>${cjos.order.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>cj.oshopping.common</groupId>
+			<artifactId>cjos-common-router</artifactId>
+			<version>${cjos.common.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
 		</dependency>
 	</dependencies>
 

@@ -17,5 +17,6 @@
 
 	<properties>
 		<cjos.order.version>${project.version}</cjos.order.version>
+		<cjos.user.version>0.0.1-SNAPSHOT</cjos.user.version>
 	</properties>
 </project>
