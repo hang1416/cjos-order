@@ -1,0 +1,35 @@
+---
+spring:
+  profiles: local
+
+url:
+  link:
+    ORDER: local-order.<__site__>:${server.port}<__media__>
+    USER: dev-user.<__site__><__media__>
+    PRODUCT: dev-product.<__site__><__media__>
+    DISPLAY: dev-www.<__site__><__media__>
+    EVENT: dev-www.<__site__><__media__>
+    
+---
+spring:
+  profiles: dev, qa, stg
+
+url:
+  link:
+    USER: ${phase}-user.<__site__><__media__>
+    ORDER: ${phase}-order.<__site__><__media__>
+    PRODUCT: ${phase}-product.<__site__><__media__>
+    DISPLAY: ${phase}-www.<__site__><__media__>
+    EVENT: ${phase}-www.<__site__>/event<__media__>
+    
+---
+spring:
+  profiles: real
+
+url:
+  link:
+    USER: user.<__site__><__media__>
+    ORDER: order.<__site__><__media__>
+    PRODUCT: product.<__site__><__media__>
+    DISPLAY: www.<__site__><__media__>
+    EVENT: www.<__site__>/event<__media__>

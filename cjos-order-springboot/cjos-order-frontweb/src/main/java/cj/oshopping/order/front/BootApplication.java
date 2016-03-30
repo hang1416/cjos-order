@@ -7,12 +7,14 @@ import org.springframework.context.annotation.Import;
 
 import cj.oshopping.common.crypto.spring.PropertiesConfiguration;
 import cj.oshopping.common.router.config.CommonRouteConfig;
+import cj.oshopping.common.yaml.YamlPropertySource;
 import cj.oshopping.common.yaml.YamlSupportEnvironment;
 import cj.oshopping.order.core.config.OrderCoreConfig;
 
 @SpringBootApplication
 @EnableEurekaClient
 @Import(value = { PropertiesConfiguration.class, OrderCoreConfig.class, CommonRouteConfig.class})
+@YamlPropertySource("classpath:/config/url-link.yml")
 public class BootApplication {
 	
 	public static void main(String[] args) {

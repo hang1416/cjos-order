@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="cj" uri="http://common.oshopping.com/ec-common"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -7,6 +8,8 @@
 		<title>setCookie</title>
 		<script src="https://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
 		<script src="/js/jquery.cookie.js"></script>
+		<script src="/js/common/hello.js"></script>
+		<script src="/js/common/bye.js"></script>
 	</head>
 	
 	<body style="padding:10px">
@@ -23,7 +26,7 @@
 		</div>
 		
 		
-		<a href='http://<c:out value="${userDomainPortProperty.frontweb.cjmall.domainPort}"/>/app/name'>user frontweb page</a>
+		<a href='http://<cj:linkUrl serviceType="USER" />app/name'>user frontweb page</a>
 		
 		<script type="text/javascript">
 			var COOKIE_KEY_PREFIX = "rt";

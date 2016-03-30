@@ -10,7 +10,6 @@ import cj.oshopping.common.webapp.config.WebAppMvcConfigurerAdapter;
 import cj.oshopping.common.webapp.converter.StringToCodeConverter;
 
 @Configuration
-// public class WebConfig extends WebMvcConfigurationSupport {
 public class WebConfig extends WebAppMvcConfigurerAdapter {
 
 }

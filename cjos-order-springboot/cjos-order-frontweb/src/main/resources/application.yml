@@ -1,12 +1,14 @@
 server:
-  address: ${domainByProfile.order.frontweb.cjmall.domain}
-  port: ${domainByProfile.order.frontweb.cjmall.port}
+  port: 8120
   
+
 spring:
   mvc:
     view:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
+  profiles:
+    active: local
 
 eureka:
   client:
