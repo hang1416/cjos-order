@@ -1,5 +1,3 @@
 spring:
   application:
-    name: cjos-order-frontweb-local
- 
-    
+    name: ec-order-frontweb-multi-local

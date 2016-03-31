@@ -29,27 +29,22 @@
 		<a href='http://<cj:linkUrl serviceType="USER" />app/name'>user frontweb page</a>
 		
 		<script type="text/javascript">
-			var COOKIE_KEY_PREFIX = "rt";
-			var COOKIE_KEY_CJMALL_ORDER_FRONTWEB = COOKIE_KEY_PREFIX + "orderWebCjmallDev";
-			var COOKIE_KEY_OSHOPPING_USER_APISERVER = COOKIE_KEY_PREFIX + "userApiOshoppingDev";
-			var COOKIE_KEY_CJMALL_USER_FRONTWEB = COOKIE_KEY_PREFIX + "userWebCjmallDev";
+			var DRT_COOKIE_KEY = "drt";
 			var COOKIE_OPTION =  { path: '/', domain: 'cjmall.com' };
 			
+			var DRT_COOKIE_VALUES = [];
+			DRT_COOKIE_VALUES.push("ec-order-frontweb-multi-dev");
+			DRT_COOKIE_VALUES.push("ec-user-apiserver-dev-pdev1");
+			DRT_COOKIE_VALUES.push("ec-user-frontweb-multi-dev-pdev1");
+			
+			
 			$("#btnSetCookie").click(function() {
-				$.cookie(COOKIE_KEY_CJMALL_ORDER_FRONTWEB, "order-frontweb-cjmall-dev", COOKIE_OPTION);
-				$.cookie(COOKIE_KEY_OSHOPPING_USER_APISERVER, "user-apiserver-oshopping-dev-pdev1", COOKIE_OPTION);
-				$.cookie(COOKIE_KEY_CJMALL_USER_FRONTWEB, "user-frontweb-cjmall-dev-pdev1", COOKIE_OPTION);
-				
+				$.cookie(DRT_COOKIE_KEY, DRT_COOKIE_VALUES.join(","), COOKIE_OPTION);
 				printCookie();
 			});
 			
 			$("#btnResetCookie").click(function() {
-				$.each($.cookie(), function(key, value) {
-					if(key.indexOf(COOKIE_KEY_PREFIX) == 0) {
-						$.removeCookie(key, COOKIE_OPTION);
-					}
-				});
-				
+				$.removeCookie(DRT_COOKIE_KEY, COOKIE_OPTION);
 				printCookie();
 			});
 			
@@ -60,7 +55,7 @@
 			$("#btnCallUserApi").click(function() {
 				$("#divUserApiData").empty;
 				$.ajax({
-					url : "/apiserver/user/info"					
+					url : "/apiserver/user/info"
 				}).done(function(data, textStatus, jqXHR) {
 					console.log(data);
 					$("#divUserApiData").text(JSON.stringify(data));
@@ -69,16 +64,8 @@
 			});
 			
 			function printCookie() {
-				$("divCookieData").empty();
-				
-				var buffer = [];
-				$.each($.cookie(), function(key, value) {
-					if(key.indexOf(COOKIE_KEY_PREFIX) >= 0) {
-						buffer.push("{ '"+ key + "' : '" + value + "' }");
-					}
-				});
-				
-				$("#divCookieData").html(buffer.join("<br />"));
+				$("#divCookieData").empty();
+				$("#divCookieData").html($.cookie(DRT_COOKIE_KEY));
 			}
 		</script>
 	</body>
